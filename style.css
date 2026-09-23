@@ -54,6 +54,7 @@ body {
     flex: 1;
     margin-left: 240px;
     padding: 35px;
+    min-width: 0;
 }
 
 .header {
@@ -217,6 +218,9 @@ td {
     .stats {
         grid-template-columns: repeat(2, 1fr);
     }
+    .reports-grid {
+    grid-template-columns: repeat(2, 1fr);
+    }
 
 }
 @media (max-width: 600px) {
@@ -266,7 +270,11 @@ td {
         gap: 15px;
     }
 
+    .reports-grid {
+    grid-template-columns: 1fr;
+    }
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -631,4 +639,140 @@ table tbody td {
         grid-template-columns: 1fr;
     }
 
+}
+
+#clear-filters {
+    padding: 11px 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e5e7eb;
+    color: #374151;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#clear-filters:hover {
+    background-color: #d1d5db;
+}
+
+/* =========================
+   USERS
+========================= */
+
+.user-tickets {
+    margin-top: 12px;
+    font-weight: 600;
+    color: #374151 !important;
+}
+
+.user-tickets span {
+    font-weight: bold;
+}
+
+
+/* =========================
+   REPORTS
+========================= */
+
+.reports-section {
+    margin-top: 35px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.report-card {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background-color: #f9fafb;
+}
+
+.report-card h3 {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.report-card p {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+    .reports-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .users-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .users-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .tickets-section,
+    .users-section,
+    .reports-section {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .users-grid,
+    .reports-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ticket-tools {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #search-input,
+    #status-filter,
+    #priority-filter,
+    #clear-filters {
+        width: 100%;
+        max-width: none;
+    }
 }

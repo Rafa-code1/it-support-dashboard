@@ -9,9 +9,12 @@
 </head>
 
 <body>
-    <div class="dashboard">
 
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
     <aside class="sidebar">
+
         <h1>IT Support</h1>
 
         <nav>
@@ -20,180 +23,226 @@
             <a href="#users">Users</a>
             <a href="#reports">Reports</a>
         </nav>
+
     </aside>
 
 
+    <!-- MAIN CONTENT -->
     <main class="main-content">
 
+        <!-- HEADER -->
         <header class="header">
-    <div>
-        <h2>Dashboard</h2>
-        <p>Welcome back!</p>
-    </div>
 
-    <div class="current-date" id="current-date"></div>
-</header>
+            <div>
+                <h2>Dashboard</h2>
+                <p>Welcome back!</p>
+            </div>
+
+            <div class="current-date" id="current-date"></div>
+
+        </header>
+
+
+        <!-- STATISTICS -->
         <section class="stats">
 
-    <div class="stat-card">
-        <h3>Total Tickets</h3>
-        <p id="total-tickets">0</p>
-    </div>
+            <div class="stat-card">
+                <h3>Total Tickets</h3>
+                <p id="total-tickets">0</p>
+            </div>
 
-    <div class="stat-card">
-        <h3>Open</h3>
-        <p id="open-tickets">0</p>
-    </div>
+            <div class="stat-card">
+                <h3>Open</h3>
+                <p id="open-tickets">0</p>
+            </div>
 
-    <div class="stat-card">
-        <h3>In Progress</h3>
-        <p id="progress-tickets">0</p>
-    </div>
+            <div class="stat-card">
+                <h3>In Progress</h3>
+                <p id="progress-tickets">0</p>
+            </div>
 
-    <div class="stat-card">
-        <h3>Resolved</h3>
-        <p id="resolved-tickets">0</p>
-    </div>
+            <div class="stat-card">
+                <h3>Resolved</h3>
+                <p id="resolved-tickets">0</p>
+            </div>
 
-</section>
-<section class="tickets-section" id="tickets">
+        </section>
 
-    <div class="section-header">
-        <div>
-            <h2>Recent Tickets</h2>
-            <p>Manage and track your support requests</p>
-        </div>
 
-        <button class="new-ticket-btn">+ New Ticket</button>
-    </div>
-    <div class="ticket-tools">
+        <!-- TICKETS -->
+        <section class="tickets-section" id="tickets">
 
-    <input 
-        type="text" 
-        id="search-input" 
-        placeholder="Search tickets..."
-    >
+            <div class="section-header">
 
-    <select id="status-filter">
+                <div>
+                    <h2>Recent Tickets</h2>
+                    <p>Manage and track your support requests</p>
+                </div>
 
-        <option value="All">All Statuses</option>
-        <option value="Open">Open</option>
-        <option value="In Progress">In Progress</option>
-        <option value="Resolved">Resolved</option>
+                <button class="new-ticket-btn">
+                    + New Ticket
+                </button>
 
-    </select>
+            </div>
 
-    <select id="priority-filter">
 
-        <option value="All">All Priorities</option>
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
+            <!-- FILTERS -->
+            <div class="ticket-tools">
 
-    </select>
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search tickets..."
+                >
 
-</div>
+                <select id="status-filter">
+                    <option value="All">All Statuses</option>
+                    <option value="Open">Open</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
 
-    <div class="table-container">
+                <select id="priority-filter">
+                    <option value="All">All Priorities</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
 
-        <table>
+                <button id="clear-filters" type="button">
+                    Clear Filters
+                </button>
 
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Issue</th>
-                    <th>Category</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+            </div>
 
-            <tbody id="tickets-body">
-                
-            </tbody>
 
-        </table>
+            <!-- TABLE -->
+            <div class="table-container">
 
-    </div>
+                <table>
 
-</section>
-<section class="users-section" id="users">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Issue</th>
+                            <th>Category</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
 
-    <div class="section-header">
-        <div>
-            <h2>Support Users</h2>
-            <p>Manage users who submitted support requests</p>
-        </div>
-    </div>
+                    <tbody id="tickets-body"></tbody>
 
-    <div class="users-grid">
+                </table>
 
-        <div class="user-card">
-            <h3>Sarah Johnson</h3>
-            <p>Marketing Department</p>
-            <p class="user-tickets">Tickets: <span>0</span></p>
-        </div>
+            </div>
 
-        <div class="user-card">
-            <h3>Michael Brown</h3>
-            <p>Finance Department</p>
-            <p class="user-tickets">Tickets: <span>0</span></p>
-        </div>
+        </section>
 
-        <div class="user-card">
-            <h3>Emily Davis</h3>
-            <p>HR Department</p>
-            <p class="user-tickets">Tickets: <span>0</span></p>
-        </div>
 
-    </div>
+        <!-- USERS -->
+        <section class="users-section" id="users">
 
-</section>
-<section class="reports-section" id="reports">
+            <div class="section-header">
 
-    <div class="section-header">
-        <div>
-            <h2>Support Reports</h2>
-            <p>Overview of ticket activity and priorities</p>
-        </div>
-    </div>
+                <div>
+                    <h2>Support Users</h2>
+                    <p>Manage users who submitted support requests</p>
+                </div>
 
-    <div class="reports-grid">
+            </div>
 
-        <div class="report-card">
-            <h3>Open Tickets</h3>
-            <p id="report-open">0</p>
-        </div>
 
-        <div class="report-card">
-            <h3>In Progress</h3>
-            <p id="report-progress">0</p>
-        </div>
+            <div class="users-grid">
 
-        <div class="report-card">
-            <h3>Resolved Tickets</h3>
-            <p id="report-resolved">0</p>
-        </div>
+                <div class="user-card">
+                    <h3>Sarah Johnson</h3>
+                    <p>Marketing Department</p>
+                    <p class="user-tickets">
+                        Tickets: <span>0</span>
+                    </p>
+                </div>
 
-        <div class="report-card">
-            <h3>High Priority</h3>
-            <p id="report-high">0</p>
-        </div>
+                <div class="user-card">
+                    <h3>Michael Brown</h3>
+                    <p>Finance Department</p>
+                    <p class="user-tickets">
+                        Tickets: <span>0</span>
+                    </p>
+                </div>
 
-    </div>
+                <div class="user-card">
+                    <h3>Emily Davis</h3>
+                    <p>HR Department</p>
+                    <p class="user-tickets">
+                        Tickets: <span>0</span>
+                    </p>
+                </div>
 
-</section>
+            </div>
+
+        </section>
+
+
+        <!-- REPORTS -->
+        <section class="reports-section" id="reports">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Support Reports</h2>
+                    <p>Overview of ticket activity and priorities</p>
+                </div>
+
+            </div>
+
+
+            <div class="reports-grid">
+
+                <div class="report-card">
+                    <h3>Open Tickets</h3>
+                    <p id="report-open">0</p>
+                </div>
+
+                <div class="report-card">
+                    <h3>In Progress</h3>
+                    <p id="report-progress">0</p>
+                </div>
+
+                <div class="report-card">
+                    <h3>Resolved Tickets</h3>
+                    <p id="report-resolved">0</p>
+                </div>
+
+                <div class="report-card">
+                    <h3>Resolution Rate</h3>
+                    <p id="report-rate">0%</p>
+                </div>
+
+                <div class="report-card">
+                    <h3>High Priority</h3>
+                    <p id="report-high">0</p>
+                </div>
+
+            </div>
+
+        </section>
 
     </main>
 
 </div>
+
+
+<!-- VIEW TICKET MODAL -->
 <div class="modal" id="ticket-modal">
 
     <div class="modal-content">
 
-        <button class="close-modal" id="close-modal">&times;</button>
+        <button class="close-modal" id="close-modal">
+            &times;
+        </button>
 
         <h2>Ticket Details</h2>
 
@@ -202,47 +251,153 @@
     </div>
 
 </div>
+
+
+<!-- NEW TICKET MODAL -->
 <div class="modal" id="new-ticket-modal">
 
     <div class="modal-content">
 
-        <button class="close-modal" id="close-new-ticket">&times;</button>
+        <button class="close-modal" id="close-new-ticket">
+            &times;
+        </button>
 
         <h2>Create New Ticket</h2>
+
 
         <form id="ticket-form">
 
             <label for="issue">Issue</label>
-            <input type="text" id="issue" required>
-            
+
+            <input
+                type="text"
+                id="issue"
+                required
+            >
+
+
             <label for="description">Description</label>
-            <textarea id="description" rows="4" required></textarea>
+
+            <textarea
+                id="description"
+                rows="4"
+                required
+            ></textarea>
+
 
             <label for="user">Submitted by</label>
+
             <select id="user" required>
-                <option value="">Select user</option>
-                <option value="Sarah Johnson">Sarah Johnson</option>
-                <option value="Michael Brown">Michael Brown</option>
-                <option value="Emily Davis">Emily Davis</option>
+
+                <option value="">
+                    Select user
+                </option>
+
+                <option value="Sarah Johnson">
+                    Sarah Johnson
+                </option>
+
+                <option value="Michael Brown">
+                    Michael Brown
+                </option>
+
+                <option value="Emily Davis">
+                    Emily Davis
+                </option>
+
             </select>
 
-            <label for="category">Category</label>
+
+            <label for="technician">
+                Assigned Technician
+            </label>
+
+            <select id="technician" required>
+
+                <option value="">
+                    Select technician
+                </option>
+
+                <option value="Rafa">
+                    Rafa
+                </option>
+
+                <option value="Ahmed">
+                    Ahmed
+                </option>
+
+                <option value="Lina">
+                    Lina
+                </option>
+
+            </select>
+
+
+            <label for="category">
+                Category
+            </label>
+
             <select id="category" required>
-                <option value="">Select category</option>
-                <option value="Hardware">Hardware</option>
-                <option value="Software">Software</option>
-                <option value="Network">Network</option>
+
+                <option value="">
+                    Select category
+                </option>
+
+                <option value="Hardware">
+                    Hardware
+                </option>
+
+                <option value="Software">
+                    Software
+                </option>
+
+                <option value="Network">
+                    Network
+                </option>
+
             </select>
 
-            <label for="priority">Priority</label>
+
+            <label for="priority">
+                Priority
+            </label>
+
             <select id="priority" required>
-                <option value="">Select priority</option>
-                <option value="High">High</option>
-                <option value="Medium">Medium</option>
-                <option value="Low">Low</option>
+
+                <option value="">
+                    Select priority
+                </option>
+
+                <option value="High">
+                    High
+                </option>
+
+                <option value="Medium">
+                    Medium
+                </option>
+
+                <option value="Low">
+                    Low
+                </option>
+
             </select>
 
-            <button type="submit" class="submit-ticket-btn">
+
+            <label for="resolution">
+                Resolution Notes
+            </label>
+
+            <textarea
+                id="resolution"
+                rows="3"
+                placeholder="Add resolution notes if available..."
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="submit-ticket-btn"
+            >
                 Create Ticket
             </button>
 
@@ -251,7 +406,9 @@
     </div>
 
 </div>
-<script src="script.js"></script>
-</body>
 
+
+<script src="script.js"></script>
+
+</body>
 </html>
