@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Support Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard">
+
+    <aside class="sidebar">
+        <h1>IT Support</h1>
+
+        <nav>
+            <a href="#" class="active">Dashboard</a>
+            <a href="#tickets">Tickets</a>
+            <a href="#users">Users</a>
+            <a href="#reports">Reports</a>
+        </nav>
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="header">
+    <div>
+        <h2>Dashboard</h2>
+        <p>Welcome back!</p>
+    </div>
+
+    <div class="current-date" id="current-date"></div>
+</header>
+        <section class="stats">
+
+    <div class="stat-card">
+        <h3>Total Tickets</h3>
+        <p id="total-tickets">0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Open</h3>
+        <p id="open-tickets">0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>In Progress</h3>
+        <p id="progress-tickets">0</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Resolved</h3>
+        <p id="resolved-tickets">0</p>
+    </div>
+
+</section>
+<section class="tickets-section" id="tickets">
+
+    <div class="section-header">
+        <div>
+            <h2>Recent Tickets</h2>
+            <p>Manage and track your support requests</p>
+        </div>
+
+        <button class="new-ticket-btn">+ New Ticket</button>
+    </div>
+    <div class="ticket-tools">
+
+    <input 
+        type="text" 
+        id="search-input" 
+        placeholder="Search tickets..."
+    >
+
+    <select id="status-filter">
+
+        <option value="All">All Statuses</option>
+        <option value="Open">Open</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Resolved">Resolved</option>
+
+    </select>
+
+    <select id="priority-filter">
+
+        <option value="All">All Priorities</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+
+    </select>
+
+</div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Issue</th>
+                    <th>Category</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="tickets-body">
+                
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+<section class="users-section" id="users">
+
+    <div class="section-header">
+        <div>
+            <h2>Support Users</h2>
+            <p>Manage users who submitted support requests</p>
+        </div>
+    </div>
+
+    <div class="users-grid">
+
+        <div class="user-card">
+            <h3>Sarah Johnson</h3>
+            <p>Marketing Department</p>
+            <p class="user-tickets">Tickets: <span>0</span></p>
+        </div>
+
+        <div class="user-card">
+            <h3>Michael Brown</h3>
+            <p>Finance Department</p>
+            <p class="user-tickets">Tickets: <span>0</span></p>
+        </div>
+
+        <div class="user-card">
+            <h3>Emily Davis</h3>
+            <p>HR Department</p>
+            <p class="user-tickets">Tickets: <span>0</span></p>
+        </div>
+
+    </div>
+
+</section>
+<section class="reports-section" id="reports">
+
+    <div class="section-header">
+        <div>
+            <h2>Support Reports</h2>
+            <p>Overview of ticket activity and priorities</p>
+        </div>
+    </div>
+
+    <div class="reports-grid">
+
+        <div class="report-card">
+            <h3>Open Tickets</h3>
+            <p id="report-open">0</p>
+        </div>
+
+        <div class="report-card">
+            <h3>In Progress</h3>
+            <p id="report-progress">0</p>
+        </div>
+
+        <div class="report-card">
+            <h3>Resolved Tickets</h3>
+            <p id="report-resolved">0</p>
+        </div>
+
+        <div class="report-card">
+            <h3>High Priority</h3>
+            <p id="report-high">0</p>
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+</div>
+<div class="modal" id="ticket-modal">
+
+    <div class="modal-content">
+
+        <button class="close-modal" id="close-modal">&times;</button>
+
+        <h2>Ticket Details</h2>
+
+        <div id="ticket-details"></div>
+
+    </div>
+
+</div>
+<div class="modal" id="new-ticket-modal">
+
+    <div class="modal-content">
+
+        <button class="close-modal" id="close-new-ticket">&times;</button>
+
+        <h2>Create New Ticket</h2>
+
+        <form id="ticket-form">
+
+            <label for="issue">Issue</label>
+            <input type="text" id="issue" required>
+            
+            <label for="description">Description</label>
+            <textarea id="description" rows="4" required></textarea>
+
+            <label for="user">Submitted by</label>
+            <select id="user" required>
+                <option value="">Select user</option>
+                <option value="Sarah Johnson">Sarah Johnson</option>
+                <option value="Michael Brown">Michael Brown</option>
+                <option value="Emily Davis">Emily Davis</option>
+            </select>
+
+            <label for="category">Category</label>
+            <select id="category" required>
+                <option value="">Select category</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Software">Software</option>
+                <option value="Network">Network</option>
+            </select>
+
+            <label for="priority">Priority</label>
+            <select id="priority" required>
+                <option value="">Select priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <button type="submit" class="submit-ticket-btn">
+                Create Ticket
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>
